@@ -1,0 +1,51 @@
+:root {
+--charcoal: #2d434eff;
+--bittersweet: #fe5e52ff;
+--tiffany-blue: #aad9c8ff;
+--background-color: ##F8FAFC;
+--accent: #f7ede9ff;
+--old-gold: #DBBF6Bff;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+    background-color: var(--background-color);
+    color: var(--charcoal);
+    font-weight: 300;
+    font-size: 1.2rem;
+    
+}
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 800;
+    font-family:'Lexend Exa', sans-serif;
+}
+
+.container-fluid-custom {
+    max-width:1600px
+}
+
+h2.logo{
+    color: var(--tiffany-blue);
+    padding-right: 20px; 
+
+}
+
+/* button overrides */
+.btn-primary {
+  background-color:var(--bittersweet);   /* normal state */
+  border-color: var(--bittersweet);
+}
+
+.btn-primary:hover {
+  background-color: rgba(254, 93, 82, 0.854);
+  border-color: rgba(254, 93, 82, 0.854);
+}
+
+.btn-outline-primary {
+    color: purple;   /* normal state */
+    border-color: purple;
+}
+
+/*home page*/
+
+
+
