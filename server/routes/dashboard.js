@@ -16,6 +16,7 @@ router.get('/dashboard/search', isLoggedIn, dashboardController.dashboardSearch)
 router.post('/dashboard/search', isLoggedIn, dashboardController.dashboardSearchSubmit);
 
 
+
 module.exports = router;
 
 

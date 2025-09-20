@@ -64,20 +64,28 @@ exports.dashboardViewNote = async (req, res) => {
 }
 }
 
-//Update Specific Note
+// Update Specific Note
 exports.dashboardUpdateNote = async (req, res) => {
-try {
-  await Note.findOneAndUpdate(
-    {_id: req.params.id},
-    {title: req.body.title, body: req.body.body, updatedAt: Date.now()}
-  ).where({user: req.user.id});
-  res.redirect('/dashboard');
-} catch (error) {
-  console.log(error);
-  
-}
-  
-}
+  try {
+    await Note.findOneAndUpdate(
+      { _id: req.params.id, user: req.user._id }, 
+      {
+        title: req.body.title,
+        body: {
+          html: req.body.html,      // Quill HTML
+          delta: req.body.delta,    // optional
+        },
+        updatedAt: Date.now(),
+      },
+      { runValidators: true }
+    );
+
+    res.redirect("/dashboard");
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error updating note");
+  }
+};
 
 //Delete Specific Note
 exports.dashboardDeleteNote = async (req, res, next) => {
@@ -144,3 +152,6 @@ exports.dashboardSearchSubmit = async (req, res) => {
     console.log(error);
   }
 }
+
+    
+

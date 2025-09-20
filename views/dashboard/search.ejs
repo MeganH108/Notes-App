@@ -1,16 +1,15 @@
-<div class="container-fluid container-fluid-custom pb-5 mb-5">
-    <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-        <% if (searchResults && searchResults.length> 0) { %>
+<div class="search container-fluid container-fluid-custom pb-5 mb-5">
+    <% if (searchResults && searchResults.length > 0) { %>
+        <ul class="search-results">
             <% searchResults.forEach(function(note) { %>
-                <a href="/dashboard/item/<%= note._id %>">
-                    <h4>
+                <li>
+                    <a href="/dashboard/item/<%= note._id %>">
                         <%= note.title %>
-                    </h4>
-                </a>
-                <% }) %>
-                    <% } else { %>
-                        <p>No results found</p>
-                        <% } %>
-
-    </div>
+                    </a>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p class="no-results">No results found</p>
+    <% } %>
 </div>

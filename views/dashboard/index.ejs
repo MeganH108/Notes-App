@@ -22,9 +22,9 @@
                                 <p class="note-meta">
                                     <%= notes[i].createdAt.toDateString() %>
                                 </p>
-                                <p class="card-text">
-                                    <%= notes[i].body %>
-                                </p>
+                                <div class="card-text quill-content">
+                                    <%- notes[i].body %>
+                                </div>
                             </a>
                         </div>
                 
@@ -71,3 +71,4 @@
 
   <% } %>
 </div>
+

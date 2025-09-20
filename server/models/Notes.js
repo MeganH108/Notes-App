@@ -1,7 +1,7 @@
 const mongoose =require('mongoose');
 
 const Schema = mongoose.Schema;
-const NotesScema = new Schema({
+const NotesSchema = new Schema({
 
     user: {
         type: Schema.ObjectId,
@@ -22,4 +22,4 @@ const NotesScema = new Schema({
 })
 
 
-module.exports = mongoose.model('Note', NotesScema);
+module.exports = mongoose.model('Note', NotesSchema);

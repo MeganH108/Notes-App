@@ -11,7 +11,81 @@
     --border-radius: 12px;
     --text-muted: #64748b;
 }
+/* ---------------- Dark Mode ---------------- */
+body.dark-mode {
+    --charcoal: #f8f8f8;
+    --bittersweet: #ff6b6b;
+    --tiffany-blue: #4dd0e1;
+    --background-color: #1c1c1c;
+    --accent: #2c2c2c;
+    --old-gold: #d4af37;
+    --text-muted: #a0a0a0;
+    --card-shadow: 0 4px 6px -1 rgba(0,0,0,0.6), 0 2px 4px -2 rgba(0,0,0,0.6);
+    background: linear-gradient(135deg, var(--background-color) 0%, #111111 100%);
+    color: var(--charcoal);
+}
 
+/* Smooth transition for theme changes */
+body, a, h1, h2, h3, h4, h5, h6, .note-card, .search-results li {
+    transition: all 0.3s ease;
+}
+
+/* Dark mode for cards */
+body.dark-mode .note-card,
+body.dark-mode .feature-card,
+body.dark-mode .section-content {
+    background-color: var(--accent);
+    box-shadow: var(--card-shadow);
+}
+
+/* Dark mode for search results */
+body.dark-mode .search-results li a {
+    color: var(--bittersweet);
+}
+
+body.dark-mode .search-results li a:hover {
+    color: var(--tiffany-blue);
+}
+
+/* Dark mode for buttons (optional) */
+body.dark-mode .btn-outline-primary {
+    color: var(--bittersweet);
+    border-color: var(--bittersweet);
+}
+
+body.dark-mode .btn-outline-primary:hover {
+    background-color: var(--bittersweet);
+    color: var(--charcoal);
+}
+/* Dark Mode Footer */
+body.dark-mode footer {
+    background-color: var(--accent);
+    color: var(--charcoal);
+    border-color: var(--old-gold);
+}
+
+body.dark-mode footer .nav-link {
+    color: var(--charcoal) !important;
+}
+
+body.dark-mode footer .nav-link:hover {
+    color: var(--bittersweet) !important;
+}
+
+body.dark-mode footer p {
+    color: var(--text-muted);
+}
+
+body.dark-mode footer .btn-outline-primary {
+    color: var(--bittersweet);
+    border-color: var(--bittersweet);
+}
+
+body.dark-mode footer .btn-outline-primary:hover {
+    background-color: var(--bittersweet);
+    color: var(--charcoal);
+}
+/*main body*/
 * {
     box-sizing: border-box;
 }
@@ -142,34 +216,6 @@ h2.logo .material-symbols-outlined {
 /* Home Page Specific Styles */
 .home {
     background: linear-gradient(135deg, var(--background-color) 0%, #e2e8f0 100%);
-}
-
-/* Hero Section */
-.hero-section {
-    text-align: center;
-    padding: 4rem 2rem;
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    margin: 2rem 1rem;
-}
-
-.hero-title {
-    font-size: 3rem;
-    background: linear-gradient(135deg, var(--charcoal) 0%, var(--tiffany-blue) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 1rem;
-}
-
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    margin-bottom: 2rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 /* Feature Cards */
@@ -429,4 +475,36 @@ h2.logo .material-symbols-outlined {
 .section-text:last-child {
     margin-bottom: 0;
 }
+/*search results */
+.search {
+    border: var(--old-gold) solid 2px;
+}
+.search-results {
+    list-style-type: disc; /* bullet points */
+    padding-left: 1.5rem;  /* spacing for bullets */
+    margin-top: 2rem;
+    margin-left: 2rem;
+}
+
+.search-results li {
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+
+.search-results li a {
+    text-decoration: none;
+    color: var(--bittersweet); /* theme color */
+    transition: color 0.2s ease;
+}
+
+.search-results li a:hover {
+    color: var(--tiffany-blue); /* hover effect */
+    text-decoration: underline;
+}
+
+.no-results {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
 

@@ -21,5 +21,29 @@
     
     <%- include('../partials/footer.ejs') %>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<script>
+    // Handle all dark mode toggle buttons
+    const toggleButtons = document.querySelectorAll('#darkModeToggle');
+    const body = document.body;
+
+    // Apply saved preference on page load
+    if (localStorage.getItem('darkMode') === 'enabled') {
+        body.classList.add('dark-mode');
+    }
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            // Save preference
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('darkMode', 'enabled');
+            } else {
+                localStorage.setItem('darkMode', 'disabled');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
