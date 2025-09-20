@@ -1,21 +1,18 @@
 <div class="container-fluid">
 <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"> 
-    <a href="/"
-        class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> 
-        <svg class="bi me-2"
-            width="40" height="32" role="img" aria-label="Bootstrap">
-            <h2 class="logo"><span class="material-symbols-outlined">
-edit
-</span>Notely</h2>
-        </svg> 
-    </a>
+   <a href="/dashboard" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+                <h2 class="logo">
+                    <span class="material-symbols-outlined">edit</span>
+                    Notely
+                </h2>
+            </a>
     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
         <li><a href="/about" class="nav-link px-2 link-body-emphasis">About</a></li>
         <li><a href="/dashboard" class="nav-link px-2 link-body-emphasis">Dashboard</a></li>
     </ul>
-    <form class="nav col-12 col-lg-auto flex-fill mb-3 justify-content-center mb-md-0" role="search"> 
-        <input type="search" class="form-control"
+    <form class="nav col-12 col-lg-auto flex-fill mb-3 justify-content-center mb-md-0" role="search" method="POST" action="/dashboard/search"> 
+        <input type="search" name="searchTerm" class="form-control"
             placeholder="Search..." aria-label="Search"> </form>
     <div class="dropdown text-end"> 
         <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle"

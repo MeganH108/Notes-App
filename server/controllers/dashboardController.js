@@ -26,7 +26,8 @@ exports.dashboard = async (req, res, next) => {
       },
     ])
       .skip(perPage * (page - 1))
-      .limit(perPage);
+      .limit(perPage)
+      .exec();
 
     // Count notes for pagination 
     const count = await Note.countDocuments({ user: userId });
@@ -47,16 +48,17 @@ exports.dashboard = async (req, res, next) => {
 
 //get View Specific Note
 
-exports.dashboardViewNote = async (req, res, next) => {
-const note = await Note.findById({_id: req.params.id})
-.where({user: req.user.id}).lean();
+exports.dashboardViewNote = async (req, res) => {
+  const note = await Note.findById({ _id: req.params.id })
+    .where({ user: req.user.id })
+    .lean();
 
-if (note) {
-  res.render('dashboard/view-notes', {
-    noteID: req.params.id,
-    note,
-    layout: '../views/layouts/dashboard'
-  });
+  if (note) {
+    res.render("dashboard/view-notes", {
+      noteID: req.params.id,
+      note,
+      layout: "../views/layouts/dashboard",
+    });
 } else {
   res.send('Note not found.')
 }
@@ -103,4 +105,42 @@ try {
 } catch (error) {
   console.log(error);
 }
+}
+
+//Get Search 
+exports.dashboardSearch = async (req, res) => {
+
+  try {
+    res.render('dashboard/search', {
+      searchResults: '',
+      layout: '../views/layouts/dashboard'
+    }
+    );
+  } catch (error) {
+  }
+}
+
+//post search
+exports.dashboardSearchSubmit = async (req, res) => {
+  try {
+    let searchTerm = req.body.searchTerm;
+    const searchNoSpecialChars = searchTerm.replace(/[^a-zA-Z0-9 ]/g, "");
+
+    const searchResults = await Note.find({
+  user: req.user._id,
+  $or: [
+    { title: { $regex: searchNoSpecialChars, $options: 'i' } },
+    { body: { $regex: searchNoSpecialChars, $options: 'i' } }
+  ]
+});
+
+
+
+    res.render('dashboard/search', {
+      searchResults,
+      layout: '../views/layouts/dashboard'
+    })
+  } catch (error) {
+    console.log(error);
+  }
 }
