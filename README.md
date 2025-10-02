@@ -41,7 +41,7 @@ cd notely
 
 Install dependencies:
 
-npm install
+npm install connect-mongo dotenv ejs express express-ejs-layouts express-session method override mongoose passport passport-google-oauth20
 
 
 Set up environment variables:
@@ -74,7 +74,7 @@ Toggle dark mode using the button in the header or footer for a personalized the
 
 Log out when finished.
 
-_Future Enhancements_
+**Possible Future Enhancements**
 
 -Add note categories or tags.
 
